@@ -25,6 +25,21 @@ still.
 Then open the address it prints on your phone, paste the key once, and add it to
 your home screen.
 
+## Or install it inside Claude Code
+
+This repository is also a Claude Code plugin marketplace, so a session can set
+tether up, scope which directories your phone may read, and diagnose it for you.
+Needs Claude Code 2.1.275 or later.
+
+```
+/plugin marketplace add NeilSang0/tether
+/plugin install tether --marketplace NeilSang0/tether
+```
+
+The plugin carries one skill. It runs the same `npx` commands above and prints
+the access it granted; it does not replace them and it installs nothing by
+itself.
+
 ## What it costs
 
 Nothing per message, which is the point of the design.
