@@ -1,0 +1,30 @@
+{
+  "name": "tether-cli",
+  "version": "1.0.1",
+  "description": "Ask the Claude Code session on your own machine a question from your phone. A Cloudflare Worker carries the text; your machine does the thinking, on the subscription you already have.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "tether": "./src/cli.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/check.mjs",
+    "start": "node src/cli.mjs"
+  },
+  "keywords": [
+    "claude-code",
+    "cloudflare-workers",
+    "remote",
+    "phone",
+    "pwa",
+    "agent",
+    "self-hosted"
+  ],
+  "engines": { "node": ">=18" }
+}

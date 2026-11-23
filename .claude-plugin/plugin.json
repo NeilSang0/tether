@@ -1,0 +1,9 @@
+{
+  "name": "tether",
+  "description": "Ask your own development machine a question from your phone. A Cloudflare Worker you own carries the text, your machine answers it with Claude Code, and no server runs a model.",
+  "version": "1.0.1",
+  "author": { "name": "Bindler", "url": "https://bindler.co/tether/" },
+  "homepage": "https://bindler.co/tether/",
+  "license": "MIT",
+  "keywords": ["phone", "remote", "mobile", "cloudflare", "worker", "headless", "claude-code"]
+}
