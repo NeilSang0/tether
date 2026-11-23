@@ -25,6 +25,21 @@ still.
 Then open the address it prints on your phone, paste the key once, and add it to
 your home screen.
 
+## Or install it inside Claude Code
+
+This repository is also a Claude Code plugin marketplace, so a session can set
+tether up, scope which directories your phone may read, and diagnose it for you.
+Needs Claude Code 2.1.275 or later.
+
+```
+/plugin marketplace add NeilSang0/tether
+/plugin install tether --marketplace NeilSang0/tether
+```
+
+The plugin carries one skill. It runs the same `npx` commands above and prints
+the access it granted; it does not replace them and it installs nothing by
+itself.
+
 ## What it costs
 
 Nothing per message, which is the point of the design.
@@ -45,11 +60,8 @@ Worth stating precisely, because this is the part that is easy to get wrong.
 Cloudflare's free KV plan allows **1,000 writes and 1,000 list operations a
 day**, per namespace, against 100,000 reads. A listener polling every 30
 seconds wakes 2,880 times a day, so a design that stamped a heartbeat and
-listed the keyspace on each poll spends both quotas having answered nothing.
-The list quota goes first, because the old poll made two list calls and one
-write: 500 polls is **4 hours 10 minutes** on the installed 30 second timer
-and **2 hours 47 minutes** on the 20 second interval `tether listen` uses by
-default, with the write quota following at 8 hours 20 and 5 hours 33.
+listed the keyspace on each poll would burn both quotas inside six hours
+having answered nothing.
 
 So the queue does not live in the keyspace. Two small keys hold it: `q` is the
 ids waiting, `ctx` is the last few answered pairs. An **idle poll reads two
